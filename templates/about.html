@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block title %}About PDF Converter{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white">
+                <h2 class="text-center mb-0">About PDF Converter</h2>
+            </div>
+            <div class="card-body">
+                <div class="row align-items-center mb-5">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <h3>What is PDF Converter?</h3>
+                        <p class="lead">A modern, responsive web application for converting various file formats to PDF and merging PDF documents.</p>
+                        <p>PDF Converter is built with Flask, a lightweight Python web framework, and uses modern libraries for file conversion and manipulation. The application features a clean, responsive design that works on all devices.</p>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <i class="fas fa-file-pdf fa-10x text-primary opacity-50"></i>
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <h3 class="mb-4">Features</h3>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-sync-alt fa-2x text-primary me-3"></i>
+                            </div>
+                            <div>
+                                <h4>File Conversion</h4>
+                                <p>Convert images, text files, and other formats to PDF with a simple upload.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-object-group fa-2x text-primary me-3"></i>
+                            </div>
+                            <div>
+                                <h4>PDF Merging</h4>
+                                <p>Combine multiple PDF files into a single document with our merge feature.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-shield-alt fa-2x text-primary me-3"></i>
+                            </div>
+                            <div>
+                                <h4>Secure Processing</h4>
+                                <p>All files are processed securely and automatically deleted after one hour.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-mobile-alt fa-2x text-primary me-3"></i>
+                            </div>
+                            <div>
+                                <h4>Responsive Design</h4>
+                                <p>Use our application on any device - desktop, tablet, or mobile phone.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <h3 class="mb-4">Technologies Used</h3>
+                <div class="row text-center">
+                    <div class="col-4 col-md-2 mb-4">
+                        <div class="p-3 border rounded bg-light h-100 d-flex align-items-center justify-content-center">
+                            <div>
+                                <i class="fab fa-python fa-3x text-primary mb-2"></i>
+                                <p class="mb-0">Python</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2 mb-4">
+                        <div class="p-3 border rounded bg-light h-100 d-flex align-items-center justify-content-center">
+                            <div>
+                                <i class="fas fa-flask fa-3x text-primary mb-2"></i>
+                                <p class="mb-0">Flask</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2 mb-4">
+                        <div class="p-3 border rounded bg-light h-100 d-flex align-items-center justify-content-center">
+                            <div>
+                                <i class="fab fa-bootstrap fa-3x text-primary mb-2"></i>
+                                <p class="mb-0">Bootstrap</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2 mb-4">
+                        <div class="p-3 border rounded bg-light h-100 d-flex align-items-center justify-content-center">
+                            <div>
+                                <i class="fab fa-js fa-3x text-primary mb-2"></i>
+                                <p class="mb-0">JavaScript</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2 mb-4">
+                        <div class="p-3 border rounded bg-light h-100 d-flex align-items-center justify-content-center">
+                            <div>
+                                <i class="fas fa-file-pdf fa-3x text-primary mb-2"></i>
+                                <p class="mb-0">PyPDF2</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2 mb-4">
+                        <div class="p-3 border rounded bg-light h-100 d-flex align-items-center justify-content-center">
+                            <div>
+                                <i class="fas fa-image fa-3x text-primary mb-2"></i>
+                                <p class="mb-0">Pillow</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

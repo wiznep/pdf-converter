@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+
+{% block title %}PDF Converter - Convert Files to PDF{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white">
+                <h2 class="text-center mb-0"><i class="fas fa-file-pdf me-2"></i>PDF Converter</h2>
+            </div>
+            <div class="card-body">
+                <ul class="nav nav-tabs mb-4" id="conversionTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="to-pdf-tab" data-bs-toggle="tab" data-bs-target="#to-pdf" 
+                                type="button" role="tab" aria-controls="to-pdf" aria-selected="true">
+                            Convert to PDF
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="merge-pdf-tab" data-bs-toggle="tab" data-bs-target="#merge-pdf" 
+                                type="button" role="tab" aria-controls="merge-pdf" aria-selected="false">
+                            Merge PDFs
+                        </button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content" id="conversionTabContent">
+                    <!-- Convert to PDF Tab -->
+                    <div class="tab-pane fade show active" id="to-pdf" role="tabpanel" aria-labelledby="to-pdf-tab">
+                        <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data" id="convertForm">
+                            <input type="hidden" name="conversion_type" value="to_pdf">
+                            
+                            <div class="mb-4 text-center">
+                                <p class="lead">Convert your files to PDF format</p>
+                                <p>Supported formats: Images (JPG, PNG, GIF), Text files (TXT, DOC, DOCX), and more</p>
+                            </div>
+                            
+                            <div class="file-upload-container mb-4">
+                                <div class="file-upload-area text-center p-5 border rounded bg-light position-relative">
+                                    <i class="fas fa-cloud-upload-alt fa-3x mb-3 text-primary"></i>
+                                    <h4>Drag & Drop Files Here</h4>
+                                    <p>or</p>
+                                    <label for="file" class="btn btn-primary">
+                                        <i class="fas fa-folder-open me-2"></i>Browse Files
+                                    </label>
+                                    <input type="file" name="file" id="file" class="file-input" required>
+                                    <div id="file-name" class="mt-3 text-muted"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success btn-lg px-5">
+                                    <i class="fas fa-file-pdf me-2"></i>Convert to PDF
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Merge PDFs Tab -->
+                    <div class="tab-pane fade" id="merge-pdf" role="tabpanel" aria-labelledby="merge-pdf-tab">
+                        <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data" id="mergeForm">
+                            <input type="hidden" name="conversion_type" value="merge_pdf">
+                            
+                            <div class="mb-4 text-center">
+                                <p class="lead">Merge multiple PDF files into one</p>
+                                <p>Select two PDF files to combine them into a single document</p>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="file-upload-area text-center p-4 border rounded bg-light position-relative">
+                                        <i class="fas fa-file-pdf fa-2x mb-2 text-primary"></i>
+                                        <h5>First PDF</h5>
+                                        <label for="file-merge-1" class="btn btn-outline-primary btn-sm">
+                                            <i class="fas fa-folder-open me-2"></i>Browse
+                                        </label>
+                                        <input type="file" name="file" id="file-merge-1" class="file-input" accept=".pdf" required>
+                                        <div id="file-name-1" class="mt-2 text-muted small"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="file-upload-area text-center p-4 border rounded bg-light position-relative">
+                                        <i class="fas fa-file-pdf fa-2x mb-2 text-primary"></i>
+                                        <h5>Second PDF</h5>
+                                        <label for="file-merge-2" class="btn btn-outline-primary btn-sm">
+                                            <i class="fas fa-folder-open me-2"></i>Browse
+                                        </label>
+                                        <input type="file" name="file2" id="file-merge-2" class="file-input" accept=".pdf" required>
+                                        <div id="file-name-2" class="mt-2 text-muted small"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-3">
+                                <button type="submit" class="btn btn-success btn-lg px-5">
+                                    <i class="fas fa-object-group me-2"></i>Merge PDFs
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Features Section -->
+        <div class="row mt-5">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-bolt fa-3x text-primary mb-3"></i>
+                        <h4>Fast Conversion</h4>
+                        <p>Convert your files to PDF format in seconds with our optimized conversion engine.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+                        <h4>Secure Processing</h4>
+                        <p>Your files are processed securely and deleted automatically after one hour.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-mobile-alt fa-3x text-primary mb-3"></i>
+                        <h4>Responsive Design</h4>
+                        <p>Use our converter on any device - desktop, tablet, or mobile phone.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Display selected filename for the convert form
+    document.getElementById('file').addEventListener('change', function(e) {
+        const fileName = e.target.files[0] ? e.target.files[0].name : 'No file selected';
+        document.getElementById('file-name').textContent = fileName;
+    });
+    
+    // Display selected filenames for the merge form
+    document.getElementById('file-merge-1').addEventListener('change', function(e) {
+        const fileName = e.target.files[0] ? e.target.files[0].name : 'No file selected';
+        document.getElementById('file-name-1').textContent = fileName;
+    });
+    
+    document.getElementById('file-merge-2').addEventListener('change', function(e) {
+        const fileName = e.target.files[0] ? e.target.files[0].name : 'No file selected';
+        document.getElementById('file-name-2').textContent = fileName;
+    });
+    
+    // Drag and drop functionality
+    const dropArea = document.querySelector('.file-upload-area');
+    const fileInput = document.getElementById('file');
+    
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, preventDefaults, false);
+    });
+    
+    function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    
+    ['dragenter', 'dragover'].forEach(eventName => {
+        dropArea.addEventListener(eventName, highlight, false);
+    });
+    
+    ['dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, unhighlight, false);
+    });
+    
+    function highlight() {
+        dropArea.classList.add('highlight');
+    }
+    
+    function unhighlight() {
+        dropArea.classList.remove('highlight');
+    }
+    
+    dropArea.addEventListener('drop', handleDrop, false);
+    
+    function handleDrop(e) {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+        
+        if (files.length) {
+            fileInput.files = files;
+            document.getElementById('file-name').textContent = files[0].name;
+        }
+    }
+</script>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .file-upload-area {
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .file-upload-area.highlight {
+        background-color: #f0f9ff !important;
+        border-color: #0d6efd !important;
+    }
+    
+    .file-input {
+        position: absolute;
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        z-index: -1;
+    }
+</style>
+{% endblock %}
