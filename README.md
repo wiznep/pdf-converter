@@ -21,7 +21,7 @@ A modern, responsive web application built with Flask for converting various fil
 
 1. Clone the repository:
 ```
-git clone https://github.com/yourusername/pdf-converter.git
+git clone https://github.com/wiznep/pdf-converter.git
 cd pdf-converter
 ```
 
